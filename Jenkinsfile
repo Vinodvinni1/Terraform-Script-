@@ -1,4 +1,3 @@
-
 pipeline {
 
     parameters {
@@ -13,10 +12,14 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Vinodvinni1/Terraform-Script-.git'
+                 script{
+                        dir("terraform")
+                        {
+                            git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
                         }
                     }
                 }
+            }
 
         stage('Plan') {
             steps {
